@@ -1,0 +1,34 @@
+{
+  "name": "uni_open_street_map_cities_population",
+  "version": "1.0.0",
+  "description": "A university project showing the population of the 5 biggest cities of the chosed country from the maps",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build_browser": "rollup --config rollup.config.js --bundleConfigAsCjs && cp node_modules/ol/ol.css public/dist/ol.css",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KoStard/uni_open_street_map_cities_population.git"
+  },
+  "keywords": [
+    "OpenStreetMap",
+    "Node"
+  ],
+  "author": "KoStard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KoStard/uni_open_street_map_cities_population/issues"
+  },
+  "homepage": "https://github.com/KoStard/uni_open_street_map_cities_population#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "ol": "^7.2.2",
+    "rollup": "^3.9.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.1"
+  }
+}
