@@ -11,19 +11,21 @@
 <body>
     <div id="map"></div>
     <!-- Source: https://openstreetmap.be/en/projects/howto/openlayers.html -->
-    <div id="popup" class="ol-popup">
-        <p>The 5 major cities of <span id="country"></span> are:</p>
-        <table>
+    <div id="popup" class="ol-popup card">
+        <p>The <span id="cities-count"></span> major cities of <b><span id="country"></span></b> are:</p>
+        <table class="table card-content">
             <thead>
                 <tr>
                     <th>City</th>
                     <th>Population</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="cities-table-body">
             </tbody>
         </table>
-        <button id="popup-closer">Close</button>
+        <footer class="card-footer">
+            <button id="popup-closer" class="card-footer-item button is-danger is-light">Close</button>
+        </footer>
     </div>
     <script src="dist/bundle.js"></script>
 </body>

@@ -35,8 +35,10 @@ const openStreetMapStandard = new TileLayer({
 map.addLayer(openStreetMapStandard);
 
 const container = document.getElementById('popup');
-const content = document.getElementById('popup-content');
+const citiesTableBody = document.getElementById('cities-table-body');
 const popupCloser = document.getElementById('popup-closer');
+const countrySpan = document.getElementById('country');
+const citiesCountSpan = document.getElementById('cities-count');
 
 const overlay = new Overlay({
   element: container,
@@ -59,8 +61,21 @@ map.addEventListener('singleclick', function (evt) {
     overlay.setPosition(undefined);
   } else {
     const country = features[0].get('name');
-    console.log(features[0]); // TODO remove
-    // content.innerHTML = 'You clicked here: <code>' + country + '</code>';
+    countrySpan.innerHTML = country;
+    citiesCountSpan.innerHTML = '5';
+    citiesTableBody.innerHTML = '';
+    fetch('/cities?country=' + country).then(async function (response) {
+      const cities = await response.json();
+      citiesCountSpan.innerHTML = Math.min(cities.length, 5);
+      // Get first 5 cities
+      cities.slice(0, 5).forEach(city => {
+        const row = citiesTableBody.insertRow();
+        const nameCell = row.insertCell(0);
+        const populationCell = row.insertCell(1);
+        nameCell.innerHTML = city.cityName;
+        populationCell.innerHTML = city.population;
+      });
+    });
     overlay.setPosition(evt.coordinate);
   }
 });
