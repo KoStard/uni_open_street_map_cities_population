@@ -1,5 +1,7 @@
 To start the application:
 ```
+$ npm install
+...
 $ npm run build_browser
 ...
 $ npm run start
