@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        @import "dist/ol.css";
-
-        html,
-        body {
-            margin: 0;
-            height: 100%;
-        }
-
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 
 <body>
     <div id="map"></div>
+    <!-- Source: https://openstreetmap.be/en/projects/howto/openlayers.html -->
+    <div id="popup" class="ol-popup">
+        <p>The 5 major cities of <span id="country"></span> are:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Population</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button id="popup-closer">Close</button>
+    </div>
     <script src="dist/bundle.js"></script>
 </body>
 
